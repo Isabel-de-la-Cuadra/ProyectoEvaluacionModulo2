@@ -2,4 +2,4 @@ Este proyecto es para evaluar los conocimientos adquiridos en el Módulo 2: Fund
 
 El repositorio de GitHub que lo contiene está en: https://github.com/Isabel-de-la-Cuadra/20230418_EvaluacionFinal_Modulo2_DesarrolloAplicacionesFSJS
 
-Está deployado en GitHub Pages, en esta dirección:
+Está deployado en GitHub Pages, en esta dirección: https://isabel-de-la-cuadra.github.io/ProyectoEvaluacionModulo2/
