@@ -1,27 +1,50 @@
-// Obtener referencia a la tabla
+// Get table reference
 var table = document.getElementById("digimon-table").getElementsByTagName('tbody')[0];
 
-// Obtener referencia al modal
+// Get reference to button to display table
+var showDigimonBtn = document.getElementById("show-table-button");
+
+// Get reference to the second section and the modal
+var section02 = document.getElementById("section02");
 var modal = new bootstrap.Modal(document.getElementById('digimon-modal'));
 
-// Hacer una solicitud GET a la API de Digimon
+// State variable to know if the table is visible or not
+var isTableVisible = false;
+
+// Add click event to the button to show or hide the table
+showDigimonBtn.addEventListener("click", function() {
+    // If the table is visible, hide it and change the button text to its original value
+    if (isTableVisible) {
+        section02.style.display = "none";
+        table.style.display = "none";
+        showDigimonBtn.textContent = "Mostrar Tabla";
+        isTableVisible = false;
+    } else { // If the table is hidden, show it and change the button text to "Clear Table"
+        section02.style.display = "block";
+        table.style.display = "table-row-group";
+        showDigimonBtn.textContent = "Borrar Tabla";
+        isTableVisible = true;
+    }
+});
+
+// Making a GET request to the Digimon API
 fetch("https://digimon-api.vercel.app/api/digimon/")
     .then(function(response) {
-        // Convertir la respuesta a un objeto JSON
+        // Convert the response to a JSON object
         return response.json();
     })
     .then(function(data) {
-        // Rellenar la tabla
-        // Iterar sobre los datos y agregarlos a la tabla
+        // Fill in the table
+        // Iterate over the data and add it to the table
         data.forEach(function(digimon) {
-            // Crear una nueva fila para cada digimon
+            // Create a new row for each Digimon
             var row = table.insertRow();
 
-            // Agregar el nombre del digimon a la primera celda
+            // Add the name of the Digimon to the first cell
             var nameCell = row.insertCell(0);
             nameCell.innerHTML = digimon.name;
 
-            // Agregar la imagen del digimon a la segunda celda
+            // Add the Digimon image to the second cell
             var imageCell = row.insertCell(1);
             var image = document.createElement("img");
             image.setAttribute("src", digimon.img);
@@ -29,15 +52,15 @@ fetch("https://digimon-api.vercel.app/api/digimon/")
             image.setAttribute("height", "50");
             imageCell.appendChild(image);
 
-            // Agregar el tipo del digimon a la tercera celda
+            // Add the type of the Digimon to the third cell
             var levelCell = row.insertCell(2);
             levelCell.innerHTML = digimon.level;
 
-            // Efecto 1: Al pasar el mouse sobre la fila, esta se sombrea
-            // Obtener todas las filas de la tabla
+            // Effect 1: Hovering over the row causes it to be shaded
+            // Get all rows in the table
             var rows = document.querySelectorAll("#digimon-table tbody tr");
 
-            // Recorrer todas las filas y agregar listeners para los eventos "mouseover" y "mouseout"
+            // Loop through all rows and add listeners for "mouseover" and "mouseout" events
             rows.forEach(function(row) {
                 row.addEventListener("mouseover", function() {
                     row.style.backgroundColor = "#eee";
@@ -47,8 +70,8 @@ fetch("https://digimon-api.vercel.app/api/digimon/")
                 });
             });
 
-            // Efecto 2: al hacer click sobre la fila, abrir un modal
-            // Agregar un evento click a la fila para mostrar la información del digimon en el modal
+            // Effect 2: when clicking on the row, open a modal
+            // Add a click event to the row to display the digimon info in the modal
             row.addEventListener("click", function() {
                 document.getElementById("modal-title").innerHTML = digimon.name;
                 document.getElementById("modal-image").setAttribute("src", digimon.img);
@@ -60,6 +83,6 @@ fetch("https://digimon-api.vercel.app/api/digimon/")
 
     })
     .catch(function(error) {
-        // Manejar errores de la solicitud
+        // Append request errors
         console.log("Error: ", error);
     });

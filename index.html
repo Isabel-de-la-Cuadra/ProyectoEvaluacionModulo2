@@ -8,7 +8,7 @@
     <title>Evaluación Final Módulo 2</title>
     <meta name="author" content="Isabel de la Cuadra">
     <meta name="description" content="Evaluación Final Módulo 2">
-    <meta name="keywords" content="Evaluacion">
+    <meta name="keywords" content="Evaluación">
     <!-- Bootstrap5 CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <!-- CSS -->
@@ -17,12 +17,25 @@
 
 <body>
 
+    <br>
+
     <header class="container-fluid m-3">
-        <h1 class="text-center">Evaluación Final Módulo 2:</h1>
-        <h2 class="text-center">Digimon</h2>
+        <h1 class="text-center display-3">Evaluación Final Módulo 2:</h1>
+        <h2 class="text-center display-3">Digimon</h2>
     </header>
 
-    <div class="container">
+    <br>
+
+    <section class="container" id="section01">
+        <h3 class="fw-light h5">¿Quieres ver un listado de todos los Digimon que existen?</h3>
+        <h3 class="fw-light h5">Dale al botón y aparecerá una tabla con los nombres, imágenes y nivel de cada Digimon que existe</h3>
+        <h3 class="fw-light h5">Si quieres saber más, haz clic en la fila de Digimon y se abrirá un modal con la información</h3>
+        <button id="show-table-button" class="btn btn-grad">Mostrar tabla</button>
+    </section>
+
+    <br>
+
+    <section class="container mt-3" id="section02">
         <section class="table-responsive">
             <table id="digimon-table" class="table">
                 <thead>
@@ -37,7 +50,7 @@
                 </tbody>
             </table>
         </section>
-    </div>
+    </section>
 
     <div class="modal" tabindex="-1" id="digimon-modal">
         <div class="modal-dialog modal-dialog-centered">
@@ -57,8 +70,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Bootstrap5 JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js " integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N " crossorigin="anonymous "></script>
