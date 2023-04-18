@@ -1,3 +1,15 @@
+h1 h2 {
+    font-family: Georgia, serif;
+}
+
+#section02 {
+    display: none;
+}
+
+#digimon-modal {
+    display: none;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -10,4 +22,24 @@ td {
 #modal-image {
     max-width: 20rem;
     max-height: 20rem;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4 51%, #E55D87 100%);
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: gray;
+    text-decoration: none;
 }
